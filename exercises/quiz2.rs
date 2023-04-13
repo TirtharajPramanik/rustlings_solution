@@ -18,7 +18,6 @@
 // - The output element is going to be a Vector of strings.
 // No hints this time!
 
-// I AM NOT DONE
 
 pub enum Command {
     Uppercase,
@@ -26,24 +25,30 @@ pub enum Command {
     Append(usize),
 }
 
-mod my_module {
+impl Command {
+    fn exec(self, target: String) -> String {
+        match self {
+            Self::Uppercase => target.to_uppercase(),
+            Self::Trim => target.trim().to_owned(),
+            Self::Append(s) => target + &"bar".repeat(s),
+        }
+    }
+}
+
+mod my_transformer {
     use super::Command;
 
     // TODO: Complete the function signature!
-    pub fn transformer(input: ???) -> ??? {
+    pub fn transformer(input: Vec<(String, Command)>) -> Vec<String> {
         // TODO: Complete the output declaration!
-        let mut output: ??? = vec![];
-        for (string, command) in input.iter() {
-            // TODO: Complete the function body. You can do it!
-        }
-        output
+        return input.into_iter().map(|(s, c)| c.exec(s)).collect();
     }
 }
 
 #[cfg(test)]
 mod tests {
     // TODO: What do we need to import to have `transformer` in scope?
-    use ???;
+    use super::my_transformer::transformer;
     use super::Command;
 
     #[test]
