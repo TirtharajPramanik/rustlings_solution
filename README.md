@@ -1,3 +1,8 @@
+(
+    This program has been modified so `rustlings watch` automaticaly removes `// I AM NOT DONE` comment and executes next exercise.
+    `diff/` directory contains information about changed files.
+)
+
 # rustlings 🦀❤️
 
 Greetings and welcome to `rustlings`. This project contains small exercises to get you used to reading and writing Rust code. This includes reading and responding to compiler messages!
